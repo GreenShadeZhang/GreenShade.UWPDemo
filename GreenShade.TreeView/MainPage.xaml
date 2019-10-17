@@ -1,0 +1,87 @@
+﻿<Page
+    x:Class="GreenShade.TreeView.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GreenShade.TreeView"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:data="using:GreenShade.TreeView.Models"
+    xmlns:muxcontrols="using:Microsoft.UI.Xaml.Controls"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="FolderTemplate"
+                      x:DataType="data:Son">
+            <muxcontrols:TreeViewItem AutomationProperties.Name="{Binding title}"
+                                      ItemsSource="{Binding sons}"
+                                      Width="400"
+                                      IsExpanded="False">
+                <StackPanel Orientation="Horizontal">
+                    <Image Width="28" Source="{Binding list_icon}"/>
+                    <TextBlock Margin="0,0,10,0"/>
+                    <TextBlock Text="{Binding title}" FontSize="28"/>
+                </StackPanel>
+            </muxcontrols:TreeViewItem>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FolderTemplate1"
+                      x:DataType="data:Son">
+            <muxcontrols:TreeViewItem AutomationProperties.Name="{Binding title}"
+                                      ItemsSource="{Binding sons}"
+                                      Width="360"
+                                      IsExpanded="False">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0,0,10,0" />
+                    <TextBlock Text="{Binding title}"
+                               FontSize="28" />
+                </StackPanel>
+            </muxcontrols:TreeViewItem>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FileTemplate"
+                     x:DataType="data:Son">
+            <muxcontrols:TreeViewItem AutomationProperties.Name="{Binding title}"
+                                      Width="320"
+                                  IsExpanded="False">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80"/>
+                        <ColumnDefinition  Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal"
+                                Width="320"
+                                Grid.Column="1">
+                        <TextBlock Margin="0,0,10,0" />
+                        <TextBlock Text="{Binding title}"
+                                   FontSize="24" />
+
+                    </StackPanel>
+                    <Button   Command="{Binding SwitchThemeCommand }"
+                              CommandParameter="{Binding}"
+                              HorizontalAlignment="Right"
+                              Grid.Column="0"
+                              Background="Transparent"
+                              CornerRadius="4"
+                              Content="{x:Bind BtnText,Mode=TwoWay}" />
+                </Grid>
+
+            </muxcontrols:TreeViewItem>
+        </DataTemplate>
+        <local:ExplorerItemTemplateSelector 
+            x:Key="ExplorerItemTemplateSelector"
+            FolderTemplate="{StaticResource FolderTemplate}"
+            FileTemplate="{StaticResource FileTemplate}"                                          
+            FolderTemplate1="{StaticResource FolderTemplate1}" />
+    </Page.Resources>
+    <Grid>
+        <muxcontrols:TreeView Name="TreeView1"
+                              Margin="0,12,0,0"   
+                              Width="800"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Top"
+                              SelectionMode="None"                                          
+                              ItemTemplateSelector="{StaticResource ExplorerItemTemplateSelector}"
+                              >
+        </muxcontrols:TreeView>
+    </Grid>
+</Page>
