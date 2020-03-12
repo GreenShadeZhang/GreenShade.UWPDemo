@@ -49,6 +49,7 @@ namespace GreenShade.ML.OnnxModel
                 ModelGen = await mnistModel.CreateFromStreamAsync(modelFile as IRandomAccessStreamReference);
             }
             catch(Exception ex)
+
             {
 
             }
