@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="GreenShade.ML.OnnxModel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GreenShade.ML.OnnxModel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="Result"></TextBlock>
+            <Button x:Name="TestBtn"
+                Content="测好文本"
+                Click="TestBtn_Click">
+
+            </Button>
+        </StackPanel>
+       
+    </Grid>
+</Page>

@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenShade.TreeView", "Gree
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenShade.ML.EmoticonDetection", "GreenShade.ML.EmoticonDetection\GreenShade.ML.EmoticonDetection.csproj", "{C2447385-8379-472F-9B6F-781A7D59A92B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimedTasksByDotNetCore", "TimedTasksByDotNetCore\TimedTasksByDotNetCore.csproj", "{60ABB76D-25FA-49C5-A360-2BA805C09BE5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimedTasksByDotNetCore", "TimedTasksByDotNetCore\TimedTasksByDotNetCore.csproj", "{60ABB76D-25FA-49C5-A360-2BA805C09BE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenShade.ML.OnnxModel", "GreenShade.ML.OnnxModel\GreenShade.ML.OnnxModel.csproj", "{7D65C43B-5061-4C20-831A-50DDA5C84215}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,6 +97,32 @@ Global
 		{60ABB76D-25FA-49C5-A360-2BA805C09BE5}.Release|x64.Build.0 = Release|Any CPU
 		{60ABB76D-25FA-49C5-A360-2BA805C09BE5}.Release|x86.ActiveCfg = Release|Any CPU
 		{60ABB76D-25FA-49C5-A360-2BA805C09BE5}.Release|x86.Build.0 = Release|Any CPU
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM.Build.0 = Debug|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM.Deploy.0 = Debug|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM64.Build.0 = Debug|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x64.ActiveCfg = Debug|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x64.Build.0 = Debug|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x64.Deploy.0 = Debug|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x86.ActiveCfg = Debug|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x86.Build.0 = Debug|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Debug|x86.Deploy.0 = Debug|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|Any CPU.ActiveCfg = Release|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM.ActiveCfg = Release|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM.Build.0 = Release|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM.Deploy.0 = Release|ARM
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM64.ActiveCfg = Release|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM64.Build.0 = Release|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|ARM64.Deploy.0 = Release|ARM64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x64.ActiveCfg = Release|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x64.Build.0 = Release|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x64.Deploy.0 = Release|x64
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x86.ActiveCfg = Release|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x86.Build.0 = Release|x86
+		{7D65C43B-5061-4C20-831A-50DDA5C84215}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
