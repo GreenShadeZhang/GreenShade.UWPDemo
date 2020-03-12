@@ -74,7 +74,7 @@
             FolderTemplate1="{StaticResource FolderTemplate1}" />
     </Page.Resources>
     <Grid>
-        <muxcontrols:TreeView Name="TreeView1"
+        <muxcontrols:TreeView x:Name="TreeView1"
                               Margin="0,12,0,0"   
                               Width="800"
                               HorizontalAlignment="Center"
