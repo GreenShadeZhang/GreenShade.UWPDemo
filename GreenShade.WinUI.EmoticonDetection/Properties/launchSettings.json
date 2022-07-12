@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "GreenShade.WinUI.EmoticonDetection (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "GreenShade.WinUI.EmoticonDetection (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
