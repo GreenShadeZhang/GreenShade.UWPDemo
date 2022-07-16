@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 
@@ -24,6 +25,7 @@ namespace GreenShade.WinUI.EmoticonDetection
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private bool _isInitialized = false;
         public MainWindow()
         {
             CurrentEmojis._emojis = new EmojiCollection();
@@ -34,18 +36,61 @@ namespace GreenShade.WinUI.EmoticonDetection
         {
             myButton.Content = "Clicked";
 
-            await CameraService.Current.InitializeAsync();
+            //await CameraService.Current.InitializeAsync();
+
+            //bool isModelLoaded = await IntelligenceService.Current.InitializeAsync();
+
+            //IntelligenceService.Current.IntelligenceServiceEmotionClassified += Current_IntelligenceServiceEmotionClassified;
+
+            //await CameraService.Current.GetImageResultAsync();
+
+            if (_isInitialized)
+            {
+                await CleanUpAsync();
+            }
+            await InitializeScreenAsync();
+        }
+
+        private async Task InitializeScreenAsync()
+        {
+            CameraHelperResult result = await CameraService.Current.InitializeAsync();
+            if (result != CameraHelperResult.Success)
+            {
+               // await MessageDialogService.Current.WriteMessage(result.ToString() + GameText.LOADER.GetString("CameraHelperResultFailed"));
+                return;
+            }
 
             bool isModelLoaded = await IntelligenceService.Current.InitializeAsync();
-
+            if (!isModelLoaded)
+            {
+               // await MessageDialogService.Current.WriteMessage(GameText.LOADER.GetString("ModelLoadedFailed"));
+                return;
+            }
             IntelligenceService.Current.IntelligenceServiceEmotionClassified += Current_IntelligenceServiceEmotionClassified;
-        
-            await CameraService.Current.GetImageResultAsync();
+
+            _isInitialized = true;
         }
 
         private void Current_IntelligenceServiceEmotionClassified(object sender, ClassifiedEmojiEventArgs e)
         {
-            Result.Text = e.ClassifiedEmoji.Name;
+            this.DispatcherQueue.TryEnqueue(() =>
+            {
+                Result.Text = e.ClassifiedEmoji.Name;
+            });
+            
+        }
+
+        private async Task CleanUpAsync()
+        {
+            _isInitialized = false;
+
+            await CameraService.Current.CleanUpAsync();
+
+            IntelligenceService.Current.CleanUp();
+
+            IntelligenceService.Current.IntelligenceServiceEmotionClassified -= Current_IntelligenceServiceEmotionClassified;
+
+            CurrentEmojis._currentEmoji = null;
         }
     }
 }
